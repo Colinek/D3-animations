@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    
+  <meta charset="utf-8">
+    <title>TutorialsTeacher | D3js animation</title>
+    <style>
+    
+   </style>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+</head>
+
+<body>
+    <div>
+    <ul>
+      <li>Enter the box</li>
+      <li>Click inside when it disappears</li>
+      <li>Exit the box</li>
+    </ul>
+  </div>
+    <svg width="500" height="500">
+        <rect width="200" height="200">
+        </svg>
+
+    <script>
+    d3.select("rect")
+      .on("mouseover", function() {
+        d3.select(this)
+          .transition()
+          .ease(d3.easeBounce)
+          .duration(2000)
+          .attr("width", "100")
+          .attr("height", "100")
+          .style("fill", "#ffe");
+      })
+      .on("mouseout", function() {
+        d3.select(this)
+          .transition()
+          .ease(d3.easeBounce)
+          .duration(500)
+          .attr("width", "200")
+          .attr("height", "200")
+          .style("fill", "black");
+      })
+      .on("click", function() {
+        d3.select(this)
+          .style("fill", "lightgreen");
+      });
+  </script>
+</body>
+
+</html>
